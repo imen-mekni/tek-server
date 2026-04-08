@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 require("dotenv").config();
-
+const sampleData = require("../data.json");
 const connection = new Sequelize(process.env.DATABASE_URL, {
   dialect: "mysql",
 });
@@ -44,6 +44,7 @@ const Product = connection.define("product", {
 
 connection
   .sync({ alter: true })
+    .then(() => Product.bulkCreate(sampleData, { ignoreDuplicates: true })
   .then(() => {
     console.log("product table created successfully!");
   })
