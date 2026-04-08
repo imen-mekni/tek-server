@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "mongo:setup": "node mongoDb/seed.js",
     "mysql:setup": "node Mysql/seeds.js"
   },
