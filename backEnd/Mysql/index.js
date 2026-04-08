@@ -45,16 +45,20 @@ const Product = connection.define("product", {
 
 connection
   .sync({ alter: true })
-  .then(() => {
+  .then(async () => {
     console.log("Tables synced successfully");
-    return Product.bulkCreate(sampleData, { ignoreDuplicates: true });
-  })
-  .then(() => {
-    console.log(" Products data have been saved");
+
+    const count = await Product.count();
+
+    if (count === 0) {
+      await Product.bulkCreate(sampleData);
+      console.log("Products data have been saved");
+    } else {
+      console.log("Data already exists, skipping insert");
+    }
   })
   .catch((error) => {
-    console.error(" Error:", error);
+    console.error("Error:", error);
   });
-
 
 module.exports = Product;
