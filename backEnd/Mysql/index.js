@@ -42,14 +42,14 @@ const Product = connection.define("product", {
 
 // !!!!!!!!!!!!!!!!please use the code below only one time!!!!!!!!!!!!!!!!!!!
 
-// connection
-//   .sync({ force: true })
-//   .then(() => {
-//     console.log("product table created successfully!");
-//   })
-//   .catch((error) => {
-//     console.error("Unable to create table : ", error);
-//   });
+connection
+  .sync({ alter: true })
+  .then(() => {
+    console.log("product table created successfully!");
+  })
+  .catch((error) => {
+    console.error("Unable to create table : ", error);
+  });
 
 // export your Model Phrase below
 module.exports = Product;
