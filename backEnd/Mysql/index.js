@@ -32,7 +32,7 @@ const Product = connection.define("product", {
     allowNull: false,
   },
   categories: {
-    type: DataTypes.ENUM("phones", "computers", "electronics"),
+    type: DataTypes.TEXT,
     allowNull: false,
     defaultValue: "electronics",
   },
