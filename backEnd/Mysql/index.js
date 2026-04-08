@@ -1,18 +1,23 @@
 const { Sequelize, DataTypes } = require("sequelize");
 require("dotenv").config();
 const sampleData = require("../data.json");
+
 const connection = new Sequelize(process.env.DATABASE_URL, {
   dialect: "mysql",
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
+  logging: false,
 });
-// verify connection
-connection.authenticate()
-  .then(() => console.log("connection established successfully"))
+
+connection
+  .authenticate()
+  .then(() => console.log(" connection established successfully"))
   .catch((err) => console.log("database not connected", err));
 
-module.exports = connection;
 
-
-//your Product table using sequilize
 const Product = connection.define("product", {
   name: {
     type: DataTypes.STRING,
@@ -38,19 +43,18 @@ const Product = connection.define("product", {
 });
 
 
-// this call, Sequelize will automatically perform an SQL query to the database and create a table, printing the message phrase table created successfully!.
-
-// !!!!!!!!!!!!!!!!please use the code below only one time!!!!!!!!!!!!!!!!!!!
-
 connection
   .sync({ alter: true })
-    .then(() => Product.bulkCreate(sampleData, { ignoreDuplicates: true })
   .then(() => {
-    console.log("product table created successfully!");
+    console.log("Tables synced successfully");
+    return Product.bulkCreate(sampleData, { ignoreDuplicates: true });
+  })
+  .then(() => {
+    console.log(" Products data have been saved");
   })
   .catch((error) => {
-    console.error("Unable to create table : ", error);
+    console.error(" Error:", error);
   });
 
-// export your Model Phrase below
+
 module.exports = Product;
