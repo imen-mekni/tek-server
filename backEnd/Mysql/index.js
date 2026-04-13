@@ -41,8 +41,18 @@ const Product = connection.define("product", {
     allowNull: false,
   },
 });
+const Cart = connection.define("cart", {
+});
+const CartItem = connection.define("cartItem", {
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 1,
+  },
+});
 
-
+Cart.belongsToMany(Product, { through: CartItem });
+Product.belongsToMany(Cart, { through: CartItem });
 connection
   .sync({ alter: true })
   .then(async () => {
@@ -61,4 +71,9 @@ connection
     console.error("Error:", error);
   });
 
-module.exports = Product;
+module.exports = {
+  connection,
+  Product,
+  Cart,
+  CartItem,
+};
