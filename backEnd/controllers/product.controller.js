@@ -35,4 +35,24 @@ getOneProduct: (req, res) => {
       res.status(500).send(error);
     });
 },
+addToCart :async (req , res) => {
+  const { cartId } = req.params;
+  const { productId, quantity } = req.body;  
+  const cart = await Cart.findByPk(cartId);
+  const product = await Product.findByPk(productId);
+  const [item, created] = await CartItem.findOrCreate({
+    where: {
+      cartId: cart.id,
+      productId: product.id,
+    },
+    defaults: { quantity: quantity },
+  });
+
+  if (!created) {
+    item.quantity += 1;
+    await item.save();
+  }
+
+  return item;
+};
 };
