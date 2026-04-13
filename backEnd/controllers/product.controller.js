@@ -1,6 +1,4 @@
-//require your model product here
-const Product=require("../Mysql")
-
+const { Product, Cart, CartItem } = require("../Mysql");
 module.exports={
   getAll :(req, res) => {
     Product.findAll()
