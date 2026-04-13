@@ -33,24 +33,38 @@ getOneProduct: (req, res) => {
       res.status(500).send(error);
     });
 },
-addToCart :async (req , res) => {
-  const { cartId } = req.params;
-  const { productId, quantity } = req.body;  
-  const cart = await Cart.findByPk(cartId);
-  const product = await Product.findByPk(productId);
-  const [item, created] = await CartItem.findOrCreate({
-    where: {
-      cartId: cart.id,
-      productId: product.id,
-    },
-    defaults: { quantity: quantity },
-  });
+addToCart: async (req, res) => {
+  try {
+    const { cartId } = req.params;
+    const { productId, quantity } = req.body;
 
-  if (!created) {
-    item.quantity += 1;
-    await item.save();
+    const cart = await Cart.findByPk(cartId);
+    if (!cart) {
+      return res.status(404).send("Cart not found");
+    }
+
+    const product = await Product.findByPk(productId);
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+
+    const [item, created] = await CartItem.findOrCreate({
+      where: {
+        cartId: cart.id,
+        productId: product.id,
+      },
+      defaults: { quantity: quantity || 1 },
+    });
+
+    if (!created) {
+      item.quantity += quantity || 1;
+      await item.save();
+    }
+
+    res.status(200).json(item);
+
+  } catch (error) {
+    res.status(500).send(error.message);
   }
-
-  return item;
-};
+}
 };
