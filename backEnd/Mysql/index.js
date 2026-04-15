@@ -58,7 +58,7 @@ CartItem.belongsTo(Cart);
 Product.hasMany(CartItem);
 CartItem.belongsTo(Product);
 connection
-  .sync({ alter: true })
+  .sync({ force: true })
   .then(async () => {
     console.log("Tables synced successfully");
 
