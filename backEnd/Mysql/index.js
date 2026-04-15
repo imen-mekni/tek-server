@@ -51,8 +51,12 @@ const CartItem = connection.define("cartItem", {
   },
 });
 
-Cart.belongsToMany(Product, { through: CartItem });
-Product.belongsToMany(Cart, { through: CartItem });
+
+Cart.hasMany(CartItem);
+CartItem.belongsTo(Cart);
+
+Product.hasMany(CartItem);
+CartItem.belongsTo(Product);
 connection
   .sync({ alter: true })
   .then(async () => {
