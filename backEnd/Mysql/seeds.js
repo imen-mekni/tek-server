@@ -1,6 +1,7 @@
 const Product = require("./index");
 const sampleData = require("../data.json");
 
-Product.bulkCreate(sampleData, { ignoreDuplicates: true }).then(() =>
-  console.log("products data have been saved")
-);
+Product.destroy({ where: {} })
+  .then(() => Product.bulkCreate(sampleData))
+  .then(() => console.log("Products data have been saved"))
+  .catch((err) => console.log(err));
