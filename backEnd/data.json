@@ -1,44 +1,56 @@
 [
-    {
-        "name": "MacBook Pro",
-        "price": "1999",
-        "description": "The MacBook Pro is a high-end laptop designed for professionals who need a powerful computer for video editing, graphic design, and other demanding tasks.",
-        "categories": "computers",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfVsv9PuVFEe0bhgG4SB6Oi7oqR1pRlUHOoQ&usqp=CAU"
-     },
-     {
-        "name": "iPhone 13",
-        "price": "799",
-        "description": "The iPhone 13 is the latest smartphone from Apple with a high-quality camera, long battery life, and a fast processor.",
-        "categories": "phones",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEeGm32C8hfCRf47-7RVjnvDlUoHjMGybWwA&usqp=CAU"
-     },
-     {
-        "name": "Samsung QLED TV",
-        "price": "1499",
-        "description": "The Samsung QLED TV is a 4K TV with a stunning display, high-quality sound, and smart features.",
-        "categories": "electronics",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs5l6VLwLJZDSSdZYIRtP70NdqtdiPxs_nvw&usqp=CAU"
-     },
-     {
-        "name": "Dell Inspiron",
-        "price": "899",
-        "description": "The Dell Inspiron is a mid-range laptop with a solid build quality, decent performance, and good battery life.",
-        "categories": "computers",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwG2oYnBheM0RtY_iINSNJK5O8GicEKT1AQ&usqp=CAU"
-     },
-     {
-        "name": "Google Pixel 6",
-        "price": "699",
-        "description": "The Google Pixel 6 is the latest smartphone from Google with a powerful camera, long battery life, and a beautiful design.",
-        "categories": "phones",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrfVK9_xK-hLyYbivEeLI1O5K9glRdJyRkqA&usqp=CAU"
-     },
-     {
-        "name": "Samsung Galaxy Book Pro",
-        "price": "1299",
-        "description": "The Samsung Galaxy Book Pro is a high-end laptop with a thin and light design, long battery life, and fast performance.",
-        "categories": "computers",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjSp4rcmnYfYeWhGY8UWxsRLf7nMs2pcofNA&usqp=CAU"
-     }
-]
+  {
+    nom: "Ordinateur portable HP",
+    prix: 1899,
+    description: "Ordinateur portable HP avec écran Full HD, processeur performant et stockage SSD. Idéal pour les études, le travail et les activités quotidiennes.",
+    image: "https://spacenet.tn/325302-large_default/pc-portable-hp-15-fd0592nk-intel-core-n100-8go-256go-ssd.jpg"
+  },
+  {
+    nom: "Smartphone Samsung Galaxy",
+    prix: 1299,
+    description: "Smartphone Samsung avec grand écran, appareil photo haute résolution et batterie longue durée. Parfait pour rester connecté toute la journée.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhj65Kr5wwmhOan0Ik3kb0vGWhECVZTHy5KpBU6S8uJw&s=10"
+  },
+  {
+    nom: "Casque audio sans fil",
+    prix: 159,
+    description: "Casque audio sans fil confortable offrant un son de qualité et une connexion Bluetooth. Idéal pour écouter de la musique ou regarder des vidéos.",
+    image: "https://chaktech.tn/_next/image?url=https%3A%2F%2Fimagescdn.chaktech.tn%2Fwp-content%2Fuploads%2F2026%2F07%2Fcasque-sans-fil-xiaomi-redmi-neo-noir-24.jpg&w=1920&q=75"
+  },
+  {
+
+    nom: "Clavier mécanique RGB",
+    prix: 249,
+    description: "Clavier mécanique avec rétroéclairage RGB et touches réactives. Convient aux joueurs et aux personnes qui passent beaucoup de temps sur leur ordinateur.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkPL6p1VDogXoKocmY7aTZ5evAMTeEBAX0y4IWPvtp_w&s=10"
+  },
+  {
+
+    nom: "Souris sans fil",
+    prix: 89,
+    description: "Souris sans fil ergonomique avec capteur précis et connexion stable. Facile à transporter et adaptée au travail comme aux loisirs.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThjgKRsLI0SaGjZC69XaKJUT9dZJANZu7cwaf5PExy8Bv_AXUb5vHJZ9c&s=10"
+  },
+  {
+
+    nom: "Montre connectée",
+    prix: 329,
+    description: "Montre connectée avec écran tactile permettant de consulter les notifications, de suivre son activité quotidienne et de personnaliser son affichage.",
+    image: "https://contents.mediadecathlon.com/p2522056/k$185ff56e2099453a11753ed9ef556270/montre-connectee-multisport-cardio-cw500-m-noire.jpg"
+  },
+  {
+
+    nom: "Appareil photo numérique",
+    prix: 999,
+    description: "Appareil photo numérique compact permettant de capturer des photos détaillées et des souvenirs de qualité lors de vos sorties et voyages.",
+    image: "https://img.kentfaith.com/cache/catalog/products/us/GW41.0178S1/GW41.0178S1-1-518x518.jpg"
+  },
+  {
+
+    nom: "Enceinte Bluetooth",
+    prix: 199,
+    description: "Enceinte Bluetooth portable offrant un son puissant dans un format compact. Emportez votre musique partout et profitez d'une utilisation simple.",
+    image: "https://museeurope2024-9a2b.kxcdn.com/wp-content/uploads/2026/09/M-360-LG-SP-5118-02-EPDA-REDDOT.png"
+  }
+];
+
