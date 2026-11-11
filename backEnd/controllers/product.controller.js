@@ -134,36 +134,21 @@ module.exports = {
   },
   removeFromCart: async (req, res) => {
   try {
-    const { cartId, productId } = req.params;
+      const { cartId, productId } = req.params;
 
-    const item = await CartItem.findOne({
-      where: {
-        cartId,
-        productId,
-      },
-    });
-
-    if (!item) {
-      return res.status(404).json({ message: "Item not found in cart" });
-    }
-    if (item.quantity > 1) {
-      item.quantity -= 1;
-      await item.save();
-
-      return res.status(200).json({
-        message: "Quantity decreased by 1",
-        item,
+      const deleted = await CartItem.destroy({
+        where: { cartId, productId },
       });
-    }
-    await item.destroy();
 
-    return res.status(200).json({
-      message: "Product removed from cart",
-    });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ message: error.message });
-  }
+      if (!deleted) {
+        return res.status(404).json({ message: "Item not found in cart" });
+      }
+
+      return res.status(200).json({ message: "Item removed from cart" });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: error.message });
+    }
 },
   updateQuantity: async (req, res) => {
     try {
