@@ -165,5 +165,32 @@ module.exports = {
     return res.status(500).json({ message: error.message });
   }
 },
+  updateQuantity: async (req, res) => {
+    try {
+      const { cartId, productId } = req.params;
+      const quantity = Number(req.body.quantity);
 
+      if (!Number.isInteger(quantity) || quantity < 0) {
+        return res.status(400).json({ message: "Invalid quantity" });
+      }
+
+      const item = await CartItem.findOne({ where: { cartId, productId } });
+      if (!item) {
+        return res.status(404).json({ message: "Item not found in cart" });
+      }
+
+      if (quantity === 0) {
+        await item.destroy();
+        return res.status(200).json({ message: "Item removed from cart" });
+      }
+
+      item.quantity = quantity;
+      await item.save();
+
+      return res.status(200).json({ message: "Quantity updated", item });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: error.message });
+    }
+  },
 };
