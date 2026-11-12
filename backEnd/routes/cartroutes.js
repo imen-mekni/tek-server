@@ -5,6 +5,6 @@ const { addToCart , getCart , removeFromCart , createCart , updateQuantity} = re
 Router.post("/:cartId" , addToCart)
 Router.get("/:cartId", getCart);
 Router.delete("/:cartId/:productId", removeFromCart);
-Router.put("/cart/:cartId/:productId", updateQuantity);
+Router.put("/:cartId/:productId", updateQuantity);
 Router.post("/", createCart);
 module.exports = Router;
